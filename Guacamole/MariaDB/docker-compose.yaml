@@ -1,4 +1,10 @@
-##Maria DB Dcoerk
+---
+
+
+
+
+
+
 version: "2.1"
 services:
   mariadb:
@@ -7,14 +13,14 @@ services:
     environment:
       - PUID=1000
       - PGID=133
-      - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
+      - MYSQL_ROOT_PASSWORD=homeLab65
       - TZ=Europe/Berlin
       - MYSQL_DATABASE=lab #optional
-      - MYSQL_USER=MYSQL_USER #optional
-      - MYSQL_PASSWORD=DATABASE_PASSWORD #optional
-#      - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql #optional
+      - MYSQL_USER=homeLab65 #optional
+      - MYSQL_PASSWORD=homeLab65 #optional
+    - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql #optional
     volumes:
-      - path_to_data:/config
+      - /home/lab/docker/mariadb/data:/config
     ports:
       - 3306:3306
     restart: unless-stopped
