@@ -1,19 +1,20 @@
-# MariaDB - MySQL Database
+##Maria DB Dcoerk
+version: "2.1"
+services:
   mariadb:
+    image: ghcr.io/linuxserver/mariadb
     container_name: mariadb
-    image: linuxserver/mariadb:latest
-    restart: always
-    networks:
-      - nginxproxy_default
-    security_opt:
-      - no-new-privileges:true
-    ports:
-      - "3306:3306"
-    volumes:
-      - /home/lab/docker/mariadb/data:/config
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     environment:
       - PUID=1000
       - PGID=133
-      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
+      - TZ=Europe/London
+      - MYSQL_DATABASE=USER_DB_NAME #optional
+      - MYSQL_USER=MYSQL_USER #optional
+      - MYSQL_PASSWORD=DATABASE_PASSWORD #optional
+#      - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql #optional
+    volumes:
+      - path_to_data:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
