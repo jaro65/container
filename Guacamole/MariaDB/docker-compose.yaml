@@ -4,11 +4,11 @@
     image: linuxserver/mariadb:latest
     restart: always
     networks:
-      - t2_proxy
+      - nginxproxy_default
     security_opt:
       - no-new-privileges:true
-#    ports:
-#      - "3306:3306"
+    ports:
+      - "3306:3306"
     volumes:
       - /home/lab/docker/mariadb/data:/config
       - /etc/timezone:/etc/timezone:ro
