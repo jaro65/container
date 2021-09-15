@@ -7,7 +7,5 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
-    networks:
-      - -nginxproxy_default
     volumes:
       - /home/lab/docker/guacd/data:/config
