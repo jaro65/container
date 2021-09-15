@@ -8,4 +8,6 @@ services:
     security_opt:
       - no-new-privileges:true
     networks:
-      - t2_proxy
+      - -nginxproxy_default
+    volumes:
+      - /home/lab/docker/guacd/data:/config
