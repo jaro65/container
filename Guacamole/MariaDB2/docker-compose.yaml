@@ -16,7 +16,7 @@ services:
     volumes:
       - /home/lab/docker/mariadb/data:/config
     network:
-      - nginxproxy_defaults
+      - nginxproxy_default
     ports:
       - 3306:3306
     restart: unless-stopped
